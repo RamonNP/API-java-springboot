@@ -1,0 +1,35 @@
+curl --location 'http://localhost:8080/orders/create' \
+--header 'Content-Type: application/json' \
+--data '{
+  "userName": "Joaqui Doe",
+  "productType": "BEACH_TABLE",
+  "timeHour": 3
+}'
+
+
+curl --location 'http://localhost:8080/orders/list' \
+--header 'Content-Type: application/json' \
+--data '{
+  "filterField": "productType",
+  "filterValue": "BEACH_CHAIR"
+}'
+
+
+curl --location 'http://localhost:8080/orders/list' \
+--header 'Content-Type: application/json' \
+--data '{
+  "filterField": "userName",
+  "filterValue": "Joaqui Doe"
+}'
+
+
+curl --location --request PUT 'http://localhost:8080/orders/{id}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "userName": "John Doe",
+    "productType": "SURFBOARD",
+    "timeHour": 6
+}'
+
+
+curl --location --request DELETE 'http://localhost:8080/orders/{id}'
